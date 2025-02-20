@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHINMA University of Iloilo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="video-background">
+    <video autoplay muted loop id="bg-video">
+      <source src="PHINMAV.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-overlay"></div>
+  </div>
+
+  <div class="container">
+    <div class="login-box">
+      <h1>Enter Your Username</h1>
+      <form id="username-form">
+        <div class="input-group">
+          <input type="text" id="username-input" placeholder="" required>
+          <button type="submit" id="login-btn">Enter</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('username-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const username = document.getElementById('username-input').value.trim();
+      if (username) {
+        window.location.href = `main.html?username=${encodeURIComponent(username)}`;
+      } else {
+        alert('Please enter a valid username.');
+      }
+    });
+  </script>
+</body>
+</html>
